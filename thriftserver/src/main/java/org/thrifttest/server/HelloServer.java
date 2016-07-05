@@ -5,6 +5,7 @@ import org.apache.thrift.protocol.TBinaryProtocol;
 import org.apache.thrift.server.TServer;
 import org.apache.thrift.server.TSimpleServer;
 import org.apache.thrift.server.TThreadPoolServer;
+import org.apache.thrift.server.TThreadedSelectorServer;
 import org.apache.thrift.transport.TServerSocket;
 import org.apache.thrift.transport.TServerTransport;
 import org.apache.thrift.transport.TTransportException;
@@ -21,6 +22,7 @@ public class HelloServer {
 
         try {
             TServerSocket tServerSocket = new TServerSocket(PORT);
+//            TServerTransport tServerTransport = new TServerSocket(PORT);
 //            TServer.Args targs = new TServer.Args(tServerSocket);
             TThreadPoolServer.Args targs = new TThreadPoolServer.Args(tServerSocket);
             targs.processor(tProcessor);
