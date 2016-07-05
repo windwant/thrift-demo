@@ -2,3 +2,4 @@
 thriftserver/target/classes/
 thriftserver/target/test-classes/
 *.iml
+thirftclient/target/classes/

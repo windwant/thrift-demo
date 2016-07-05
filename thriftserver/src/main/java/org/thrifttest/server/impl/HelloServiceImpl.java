@@ -11,6 +11,7 @@ public class HelloServiceImpl implements HelloService.Iface {
     public HelloServiceImpl(){};
 
     public String hello(String name) throws TException {
+        System.out.println("name: " + name);
         return String.format("%s say hello!", name);
     }
 }
