@@ -9,7 +9,7 @@ import org.apache.thrift.transport.TTransportException;
 import org.thrifttest.server.HelloService;
 
 /**
- * Created by aayongche on 2016/7/1.
+ * Created by windwant on 2016/7/1.
  */
 public class HelloClient {
 

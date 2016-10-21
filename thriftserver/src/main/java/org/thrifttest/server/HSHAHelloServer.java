@@ -10,7 +10,8 @@ import org.apache.thrift.transport.TTransportException;
 import org.thrifttest.server.impl.HelloServiceImpl;
 
 /**
- * Created by aayongche on 2016/7/1.
+ * 半同步半异步  依赖TFramedTransport 它使用一个单独的线程来处理网络I/O，一个独立的worker线程池来处理消息
+ * Created by windwand on 2016/7/1.
  */
 public class HSHAHelloServer {
     private static final int PORT = 8889;

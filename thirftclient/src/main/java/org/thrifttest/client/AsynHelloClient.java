@@ -2,10 +2,8 @@ package org.thrifttest.client;
 
 import org.apache.thrift.TException;
 import org.apache.thrift.async.AsyncMethodCallback;
-import org.apache.thrift.async.TAsyncClient;
 import org.apache.thrift.async.TAsyncClientManager;
 import org.apache.thrift.protocol.TCompactProtocol;
-import org.apache.thrift.protocol.TProtocol;
 import org.apache.thrift.protocol.TProtocolFactory;
 import org.apache.thrift.transport.*;
 import org.thrifttest.server.HelloService;
@@ -15,7 +13,7 @@ import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 
 /**
- * Created by aayongche on 2016/7/1.
+ * Created by windwant on 2016/7/1.
  */
 public class AsynHelloClient{
 

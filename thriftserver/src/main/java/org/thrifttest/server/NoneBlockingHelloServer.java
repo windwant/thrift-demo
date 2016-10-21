@@ -1,17 +1,15 @@
 package org.thrifttest.server;
 
 import org.apache.thrift.TProcessor;
-import org.apache.thrift.protocol.TBinaryProtocol;
 import org.apache.thrift.protocol.TCompactProtocol;
 import org.apache.thrift.server.TNonblockingServer;
 import org.apache.thrift.server.TServer;
-import org.apache.thrift.server.TSimpleServer;
-import org.apache.thrift.server.TThreadPoolServer;
 import org.apache.thrift.transport.*;
 import org.thrifttest.server.impl.HelloServiceImpl;
 
 /**
- * Created by aayongche on 2016/7/1.
+ * NIO selector使用 使用TFramedTransport
+ * Created by windwant on 2016/7/1.
  */
 public class NoneBlockingHelloServer {
     private static final int PORT = 8889;

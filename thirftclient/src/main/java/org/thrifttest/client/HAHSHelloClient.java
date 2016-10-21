@@ -2,7 +2,6 @@ package org.thrifttest.client;
 
 import org.apache.thrift.TException;
 import org.apache.thrift.protocol.TBinaryProtocol;
-import org.apache.thrift.protocol.TCompactProtocol;
 import org.apache.thrift.protocol.TProtocol;
 import org.apache.thrift.transport.TFramedTransport;
 import org.apache.thrift.transport.TSocket;
@@ -11,7 +10,7 @@ import org.apache.thrift.transport.TTransportException;
 import org.thrifttest.server.HelloService;
 
 /**
- * Created by aayongche on 2016/7/1.
+ * Created by windwant on 2016/7/1.
  */
 public class HAHSHelloClient {
 
