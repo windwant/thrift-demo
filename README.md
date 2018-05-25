@@ -1,4 +1,4 @@
-# thrifttest
+# thrift-server
 
 "thrift-*.exe" -r -gen java ./*.thrift
 生成 gen-java 目录
@@ -9,7 +9,7 @@ Ruby, Erlang, Perl, Haskell, C#, Cocoa, JavaScript, Node.js, Smalltalk, and OCam
 1.服务端编码基本步骤：
 
 	* 实现服务处理接口impl
-	* 创建TProcessor
+	* 创建TProcessor //读入，写出
 	* 创建TServerTransport
 	* 创建TProtocol
 	* 创建TServer
@@ -31,8 +31,8 @@ Ruby, Erlang, Perl, Haskell, C#, Cocoa, JavaScript, Node.js, Smalltalk, and OCam
 
 4.Server
 
-	* TSimpleServer
-	* TNonblockingServer
-	* THsHaServer
-	* TThreadedSelectorServer
+	* TSimpleServer 单线程模式 测试用
+	* TNonblockingServer NIO selector循环监听
+	* THsHaServer 它使用一个单独的线程来处理网络I/O，一个独立的worker线程池来处理消息
+	* TThreadedSelectorServer 非阻塞，用多个线程来处理网络I/O。它维护了两个线程池，一个用来处理网络I/O，另一个用来进行请求的处理
 	* TThreadPoolServer 采用阻塞socket方式工作，,主线程负责阻塞式监听“监听socket”中是否有新socket到来，业务处理交由一个线程池来处理
