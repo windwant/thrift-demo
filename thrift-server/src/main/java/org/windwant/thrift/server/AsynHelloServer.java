@@ -12,6 +12,7 @@ import org.windwant.thrift.server.impl.HelloServiceImpl;
 
 /**
  * 非阻塞
+ * NIO selector使用 使用TFramedTransport
  * Created by windwant on 2016/7/1.
  */
 public class AsynHelloServer {
@@ -21,14 +22,16 @@ public class AsynHelloServer {
         TProcessor tProcessor = new HelloService.Processor<HelloService.Iface>(new HelloServiceImpl());
 
         try {
+            //继承TNonblockingServerTransport 非阻塞Socket
             TNonblockingServerSocket tNonblockingServerSocket = new TNonblockingServerSocket(PORT);
             TNonblockingServer.Args tnargs = new TNonblockingServer.Args(tNonblockingServerSocket);
             tnargs.processor(tProcessor);
-            //最外层的transport必须使用TFramedTransport 带缓冲的Transport fully read message every time
+            //带缓冲的传输 Transport   fully read message every time
             tnargs.transportFactory(new TFramedTransport.Factory());
+            //带压缩的传输协议
             tnargs.protocolFactory(new TCompactProtocol.Factory());
 
-            //非阻塞 单线程 公平锁
+            //非阻塞 单线程 公平锁  TNonblockingServer 要求最外层的transport必须使用TFramedTransport
             TServer tServer = new TNonblockingServer(tnargs);
             tServer.serve();
             System.out.println("server start...");
