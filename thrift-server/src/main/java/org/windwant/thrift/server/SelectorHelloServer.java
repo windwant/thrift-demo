@@ -11,7 +11,22 @@ import org.windwant.thrift.common.HelloService;
 import org.windwant.thrift.server.impl.HelloServiceImpl;
 
 /**
- * 非阻塞，用多个线程来处理网络I/O。它维护了两个线程池，一个用来处理网络I/O，另一个用来进行请求的处理 对比 THsHaServer
+ * TThreadedSelectorServer：
+ * 半同步/半异步，
+ * 它维护了两个线程池，一个用来处理网络I/O，另一个用来进行请求的处理
+ *
+ * 网络IO:
+ * 使用单独的线程池处理来处理非阻塞网络I/O。
+ * 连接请求由一个单一的线程处理
+ * 连接请求的读写由可配置的多个selector线程处理
+ *
+ * 请求处理:
+ * 同步worker线程池处理请求
+ *
+ * 对比 TNonblockingServer/THsHaServer 在多核环境下性能更好
+ *
+ * 另外：
+ * 因为处理连接和读写和请求处理解耦，所以能更好的处理连接的压力
  * Created by windwant on 2016/7/1.
  */
 public class SelectorHelloServer {

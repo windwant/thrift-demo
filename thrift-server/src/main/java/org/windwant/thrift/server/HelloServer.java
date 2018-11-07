@@ -11,6 +11,8 @@ import org.windwant.thrift.common.HelloService;
 import org.windwant.thrift.server.impl.HelloServiceImpl;
 
 /**
+ * TSimpleServer 简单的单线程服务
+ * 用于测试
  * Created by windwant on 2016/7/1.
  */
 public class HelloServer {
@@ -27,7 +29,7 @@ public class HelloServer {
             targs.processor(tProcessor);  //读入，写出
             targs.protocolFactory(new TBinaryProtocol.Factory()); //二进制传输协议
 
-            TServer tServer = new TSimpleServer(targs); // 简单的单线程服务模型，一般用于测试
+            TServer tServer = new TSimpleServer(targs);
             tServer.serve();
             System.out.println("server start...");
         } catch (TTransportException e) {

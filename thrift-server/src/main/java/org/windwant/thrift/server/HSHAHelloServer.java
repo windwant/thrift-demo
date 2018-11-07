@@ -11,6 +11,8 @@ import org.windwant.thrift.common.HelloService;
 import org.windwant.thrift.server.impl.HelloServiceImpl;
 
 /**
+ * 继承 TNonblockingServer
+ *
  * 半同步半异步  依赖TFramedTransport 一个单独的线程来处理网络I/O，一个独立的worker线程池来处理消息
  * Created by windwand on 2016/7/1.
  */
@@ -25,6 +27,7 @@ public class HSHAHelloServer {
             THsHaServer.Args Thhargs = new THsHaServer.Args(tNonblockingServerSocket);
             Thhargs.processor(tProcessor);
             Thhargs.transportFactory(new TFramedTransport.Factory());
+            //二进制协议
             Thhargs.protocolFactory(new TBinaryProtocol.Factory());
 
             TServer tServer = new THsHaServer(Thhargs);

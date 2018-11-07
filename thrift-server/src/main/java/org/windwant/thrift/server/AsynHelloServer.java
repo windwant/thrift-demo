@@ -11,8 +11,8 @@ import org.windwant.thrift.common.HelloService;
 import org.windwant.thrift.server.impl.HelloServiceImpl;
 
 /**
- * 非阻塞
- * NIO selector使用 使用TFramedTransport
+ * 非阻塞 单线程
+ * NIO selector使用 服务端和客户端都必须使用TFramedTransport
  * Created by windwant on 2016/7/1.
  */
 public class AsynHelloServer {
